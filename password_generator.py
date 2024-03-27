@@ -18,6 +18,31 @@ def generate_multiple_passwords(num_passwords, length=12, use_symbols=True, use_
         passwords.append(password)
     return passwords
 
+def save_to_file(passwords):
+    filename = input("Enter filename to save passwords (e.g., passwords.txt): ")
+    try:
+        with open(filename, 'w') as file:
+            for password in passwords:
+                file.write(password + '\n')
+        print("Passwords saved to", filename)
+    except Exception as e:
+        print("Error:", e)
+
+def improve_password(password):
+    improved_password = ''
+    for char in password:
+        if char == 'a':
+            improved_password += '@'
+        elif char == 'o':
+            improved_password += '0'
+        elif char == 'l':
+            improved_password += '1'
+        elif char == 's':
+            improved_password += '$'
+        else:
+            improved_password += char
+    return improved_password
+
 def main():
     try:
         num_passwords = int(input("Enter the number of passwords to generate: "))
@@ -30,6 +55,23 @@ def main():
         print("\nGenerated Passwords:")
         for password in passwords:
             print(password)
+
+        save_option = input("Do you want to save these passwords to a file? (y/n): ").lower()
+        if save_option == 'y':
+            save_to_file(passwords)
+
+        improve_option = input("Do you want to improve any of these passwords? (y/n): ").lower()
+        if improve_option == 'y':
+            improved_passwords = []
+            for password in passwords:
+                improve = input("Improve password '{}'? (y/n): ".format(password)).lower()
+                if improve == 'y':
+                    improved_passwords.append(improve_password(password))
+                else:
+                    improved_passwords.append(password)
+            print("\nImproved Passwords:")
+            for password in improved_passwords:
+                print(password)
     except ValueError:
         print("Error: Please enter valid integer values for number of passwords and password length.")
 
