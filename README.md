@@ -22,13 +22,13 @@ Users can customize this algorithm according to their specific requirements or p
 
 ## Requirements
 
-- Python 3.x
+- Python 3
 
 ## Usage
 
 1. Clone or download the repository to your local machine.
 
-2. Navigate to the directory containing the `password_generator_enhanced.py` file.
+2. Navigate to the directory containing the `password_generator.py` file.
 
 3. Run the script using the following command:
 
@@ -72,4 +72,4 @@ D3!$Jv1$Fz@0
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under GNU - see the [LICENSE](LICENSE) file for details.
