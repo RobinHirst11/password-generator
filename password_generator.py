@@ -39,6 +39,10 @@ def improve_password(password):
             improved_password += '1'
         elif char == 's':
             improved_password += '$'
+        elif char == 'e':
+            improved_password += '3'
+        elif char == 'i':
+            improved_password += '1'
         else:
             improved_password += char
     return improved_password
